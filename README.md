@@ -1,4 +1,5 @@
 # vue-flex
+More documentation and examples to come! Feel free to peruse the tiny source :)
 
 ```html
 <main>
