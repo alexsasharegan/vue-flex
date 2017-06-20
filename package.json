@@ -1,6 +1,6 @@
 {
   "name": "vue-flex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A reusable flexbox component using functional css.",
   "main": "lib/",
   "directories": {
