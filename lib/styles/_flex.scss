@@ -1,0 +1,141 @@
+.vf__flex {
+    display: flex;
+}
+
+.vf__inline-flex {
+    display: inline-flex;
+}
+
+.vf__flex-first {
+    order: -1;
+}
+
+.vf__flex-last {
+    order: 1;
+}
+
+.vf__flex-unordered {
+    order: 0;
+}
+
+.vf__flex-row {
+    flex-direction: row;
+}
+
+.vf__flex-column {
+    flex-direction: column;
+}
+
+.vf__flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.vf__flex-column-reverse {
+    flex-direction: column-reverse;
+}
+
+.vf__flex-wrap {
+    flex-wrap: wrap;
+}
+
+.vf__flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.vf__flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.vf__justify-content-start {
+    justify-content: flex-start;
+}
+
+.vf__justify-content-end {
+    justify-content: flex-end;
+}
+
+.vf__justify-content-center {
+    justify-content: center;
+}
+
+.vf__justify-content-between {
+    justify-content: space-between;
+}
+
+.vf__justify-content-around {
+    justify-content: space-around;
+}
+
+.vf__align-items-start {
+    align-items: flex-start;
+}
+
+.vf__align-items-end {
+    align-items: flex-end;
+}
+
+.vf__align-items-center {
+    align-items: center;
+}
+
+.vf__align-items-baseline {
+    align-items: baseline;
+}
+
+.vf__align-items-stretch {
+    align-items: stretch;
+}
+
+.vf__align-content-start {
+    align-content: flex-start;
+}
+
+.vf__align-content-end {
+    align-content: flex-end;
+}
+
+.vf__align-content-center {
+    align-content: center;
+}
+
+.vf__align-content-between {
+    align-content: space-between;
+}
+
+.vf__align-content-around {
+    align-content: space-around;
+}
+
+.vf__align-content-stretch {
+    align-content: stretch;
+}
+
+.vf__align-self-auto {
+    align-self: auto;
+}
+
+.vf__align-self-start {
+    align-self: flex-start;
+}
+
+.vf__align-self-end {
+    align-self: flex-end;
+}
+
+.vf__align-self-center {
+    align-self: center;
+}
+
+.vf__align-self-baseline {
+    align-self: baseline;
+}
+
+.vf__align-self-stretch {
+    align-self: stretch;
+}
+
+.vf__grow-children > * {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
