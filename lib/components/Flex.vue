@@ -10,9 +10,9 @@
 </style>
 
 <script>
-import flexPropsMixin from '../mixins/flexProps'
+import flexMixin from '../mixins/flexMixin'
 
 export default {
-    mixins: [flexPropsMixin],
+    mixins: [flexMixin],
 }
 </script>
