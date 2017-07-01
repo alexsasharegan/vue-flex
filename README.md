@@ -1,5 +1,14 @@
 # vue-flex
-More documentation and examples to come! Feel free to peruse the tiny source :)
+A Vue.js functional component to wrap anything in flexbox. (~1kb gzipped js+css)
+
+## Getting Started
+```js
+import Vue from "vue"
+import VueFlex from "vue-flex"
+import "vue-flex/dist/vue-flex.css"
+
+Vue.use(VueFlex)
+```
 
 ```html
 <main>
