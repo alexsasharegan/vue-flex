@@ -1,6 +1,6 @@
 {
     "name": "vue-flex",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A reusable flexbox component using functional css.",
     "main": "dist/vue-flex.esm.js",
     "directories": {
@@ -14,7 +14,14 @@
         "type": "git",
         "url": "git+https://github.com/alexsasharegan/vue-flex.git"
     },
-    "keywords": ["flex", "flexbox", "vue", "vuejs", "css", "scss"],
+    "keywords": [
+        "flex",
+        "flexbox",
+        "vue",
+        "vuejs",
+        "css",
+        "scss"
+    ],
     "author": "Alex Regan <alex.joseph.regan@gmail.com> (https://github.com/alexsasharegan)",
     "license": "ISC",
     "bugs": {
