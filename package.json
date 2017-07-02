@@ -7,8 +7,9 @@
         "lib": "lib"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "rollup -c ./rollup.config.js"
+        "build": "rollup -c ./rollup.config.js",
+        "calc-size": "gzip -c dist/vue-flex.esm.js | wc -c && gzip -c dist/vue-flex.css | wc -c",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
