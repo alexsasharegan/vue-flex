@@ -15,13 +15,16 @@ Vue.use(VueFlex)
     <my-navbar></my-navbar>
     <flex tag="section">
         <my-sidebar></my-sidebar>
-        <flex column
+        <flex
+              tag="main"
+              column
               justify="center"
               align="center"
-              <!-- Shorthand for :grow="true" -->
+              <!-- Shorthand for :grow="true" :wrap="true" -->
               grow
               wrap
-              tag="main"
+              <!-- Listen to native events -->
+              @click="handleClick"
         >
             <my-content></my-content>
             <my-content></my-content>
@@ -31,15 +34,28 @@ Vue.use(VueFlex)
 </main>
 ```
 
-## Props
-| Prop | Type | Default | Description |
-|:----:|:----:|:-------:|-------------|
-| tag | String | `"div"` | Element tagName |
-| inline | Boolean | `false` | `display: inline-flex` |
-| column | Boolean | `false` | `flex-direction: column` _(row is default)_ |
-| reverse | Boolean | `false` | `flex-direction: row-reverse|column-reverse` |
-| wrap | Boolean | `false` | `flex-wrap: wrap` |
-| noWrap | Boolean | `false` | `flex-wrap: nowrap` |
-| grow | Boolean | `false` | Applies to all child nodes: `{flex-grow:1;flex-shrink:1;flex-basis:0;}` |
-| justify | String | `null` | One of `[ "start", "end", "center", "between", "around" ]` |
-| align | String | `null` | One of `[ "start", "end", "center", "baseline", "stretch" ]` |
+## Component Props
+| Prop      | Type      | Default   | Description |
+| :-------: | :-------: | :-------: | ----------- |
+| tag       | String    | `"div"`   | Element tagName _(any valid HTML tag name)_ |
+| inline    | Boolean   | `false`   | `display: inline-flex` |
+| column    | Boolean   | `false`   | `flex-direction: column` _(row is default)_ |
+| reverse   | Boolean   | `false`   | `flex-direction: row-reverse|column-reverse` |
+| wrap      | Boolean   | `false`   | `flex-wrap: wrap` |
+| noWrap    | Boolean   | `false`   | `flex-wrap: nowrap` |
+| grow      | Boolean   | `false`   | Applies to all child nodes: `{flex-grow:1;flex-shrink:1;flex-basis:0;}` |
+| justify   | String    | `null`    | One of `[ "start", "end", "center", "between", "around" ]` |
+| align     | String    | `null`    | One of `[ "start", "end", "center", "baseline", "stretch" ]` |
+
+## Flexbox all the things!
+While building a large Vue.js application, I found myself constantly repeating the usage of various CSS flexbox utility classes, so I wrapped all the classes in a simple Vue component. This worked beautifully! But for two problems:
+
+- How do I listen for native events on the `<flex>` component? Do I really have to re-emit all the native events to enable `v-on:event`?
+    - _No! You can use the `.native` modifier when binding native event listeners to a custom Vue component. I find this to be a huge stumbling block for beginners because the documentation around this feature is too easy to miss. For more info:_
+        - [**Binding Native Events to Custom Components**](https://vuejs.org/v2/guide/components.html#Binding-Native-Events-to-Components)
+        - [**`v-on` modifier API reference**](https://vuejs.org/v2/api/#v-on)
+- How am I supposed to find anything in the Vue devtools component tree if so many of my components are wrapped in these `<flex>` tags?
+    - _If you have a `<ul>` with a bunch of `<flex>` wrapped `<li>`'s, it's annoying. If you use flexbox heavily, it legitimately wastes time performing a vnode scavenger hunt whenever you need to debug a particular item._
+
+## Functional Vue Components
+Functional Vue components are a real game changer here. Not only does the modifier-less `v-on:event` syntax work again to bind to native events (when the root element of the component is an HTML Element), but functional components do not appear in Vue devtools. Beyond the debugging experience, there is a performance boost to be had as well. Functional components are stateless (no `data`) and instanceless (no `this` context). This removes a lot of observation overhead and will be very beneficial when a component is likely to be rendered into many vnodes in your app.
