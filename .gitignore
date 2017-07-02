@@ -1,4 +1,7 @@
+node_modules
 .*
 !.gitignore
-*.log
-node_modules
+!.editorconfig
+!.babelrc
+!.eslintrc
+!.eslintrc.json
