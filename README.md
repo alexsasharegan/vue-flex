@@ -1,14 +1,26 @@
 # vue-flex
-A Vue.js functional component to wrap anything in flexbox. (~1kb gzipped js+css)
+[![npm version](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/vue-flex)
+[![npm downloads](https://img.shields.io/npm/dt/vue-flex.svg)](https://www.npmjs.com/package/vue-flex)
+[![GitHub issues](https://img.shields.io/github/issues/alexsasharegan/vue-flex.svg?style=flat)](https://github.com/alexsasharegan/vue-flex/issues)
+[![GitHub stars](https://img.shields.io/github/stars/alexsasharegan/vue-flex.svg)](https://github.com/alexsasharegan/vue-flex/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/alexsasharegan/vue-flex.svg)](https://github.com/alexsasharegan/vue-flex/network)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/alexsasharegan/vue-flex.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
+
+A Vue.js functional component to wrap anything in flexbox. (1.2kb gzipped js+css)
 
 ## Getting Started
 ```js
 import Vue from "vue"
-import VueFlex from "vue-flex"
+import VueFlex from "vue-flex" // imports the ESM module by default
 import "vue-flex/dist/vue-flex.css"
 
 Vue.use(VueFlex)
 ```
+
+### Dist Varieties
+The main export is an es2015 module, but commonjs and umd modules are also available:
+- Commonjs: `"vue-flex/dist/vue-flex.common.js"`
+- UMD: `"vue-flex/dist/vue-flex.js"`
 
 ```html
 <main>
