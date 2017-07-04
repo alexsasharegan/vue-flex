@@ -1,5 +1,5 @@
 # vue-flex
-[![npm version](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/vue-flex)
+[![npm version](https://badge.fury.io/js/vue-flex.svg)](https://badge.fury.io/js/vue-flex)
 [![npm downloads](https://img.shields.io/npm/dt/vue-flex.svg)](https://www.npmjs.com/package/vue-flex)
 [![GitHub issues](https://img.shields.io/github/issues/alexsasharegan/vue-flex.svg?style=flat)](https://github.com/alexsasharegan/vue-flex/issues)
 [![GitHub stars](https://img.shields.io/github/stars/alexsasharegan/vue-flex.svg)](https://github.com/alexsasharegan/vue-flex/stargazers)
