@@ -24,7 +24,6 @@ if (!fs.existsSync(dist)) {
 
 module.exports = {
     entry: path.resolve(src, "index.js"),
-    // external: Object.keys(dependencies),
     moduleName: name,
     plugins: [
         vue(),
@@ -33,7 +32,6 @@ module.exports = {
             // - style: the compiled css
             // - id: import id
             processor(css) {
-                console.log(css)
                 return postcss([autoprefixer]).process(css).then(result => result.css)
             },
             // - styles: the contents of all style tags combined: 'body { color: green }'
