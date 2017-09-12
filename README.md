@@ -64,14 +64,14 @@ The main export is an es2015 module, but commonjs and umd modules are also avail
 | grow      | Boolean   | `false`   | Applies to all child nodes: `{flex-grow:1;flex-shrink:1;flex-basis:0;}` |
 | justify   | String    | `null`    | One of `[ "start", "end", "center", "between", "around" ]` |
 | align     | String    | `null`    | One of `[ "start", "end", "center", "baseline", "stretch" ]` |
-| vAlign    | String    | `null`    | One of `[ "start", "end", "center", ["between", "baseline",] "stretch" ]` |
-| hAlign    | String    | `null`    | One of `[ "start", "end", "center", ["between", "baseline",] "stretch" ]` |
+| alignV    | String    | `null`    | One of `[ "start", "end", "center", ["between", "baseline",] "stretch" ]` |
+| alignH    | String    | `null`    | One of `[ "start", "end", "center", ["between", "baseline",] "stretch" ]` |
 
-\* `vAlign` and `hAlign` just use `align` & `justify` under the hood, but when using the directional flex components, they handle the confusion of which axis is vertical/horizontal.
+\* `alignV` and `alignH` just use `align` & `justify` under the hood, but when using the directional flex components, they handle the confusion of which axis is vertical/horizontal.
 
 ## v2
 
-Version 2 brings two new components `<flex-row>` & `<flex-col>`. In general, these just wrap the column property and make your markup more declarative. I've also added `vAlign` * `hAlign` props to all the components. These will use `align-items` & `justify-content` to determine the correct axis to apply your settings. Remembering which axis is vertical when in column direction is a classic confusion for me, so this abstracts that into a much more declarative api.
+Version 2 brings two new components `<flex-row>` & `<flex-col>`. In general, these just wrap the column property and make your markup more declarative. I've also added `alignV` * `alignH` props to all the components. These will use `align-items` & `justify-content` to determine the correct axis to apply your settings. Remembering which axis is vertical when in column direction is a classic confusion for me, so this abstracts that into a much more declarative api.
 
 ## Flexbox all the things!
 
