@@ -1,51 +1,45 @@
 {
-    "name": "vue-flex",
-    "version": "2.0.0",
-    "description": "A reusable flexbox component using functional css.",
-    "main": "dist/vue-flex.esm.js",
-    "directories": {
-        "lib": "lib"
-    },
-    "scripts": {
-        "build": "rollup -c ./rollup.config.js",
-        "calc-size": "gzip -c dist/vue-flex.esm.js | wc -c && gzip -c dist/vue-flex.css | wc -c",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/alexsasharegan/vue-flex.git"
-    },
-    "keywords": [
-        "flex",
-        "flexbox",
-        "vue",
-        "vuejs",
-        "css",
-        "scss"
-    ],
-    "author": "Alex Regan <alex.joseph.regan@gmail.com> (https://github.com/alexsasharegan)",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/alexsasharegan/vue-flex/issues"
-    },
-    "homepage": "https://github.com/alexsasharegan/vue-flex#readme",
-    "devDependencies": {
-        "autoprefixer": "^7.1.4",
-        "clean-css": "^4.1.8",
-        "lodash": "^4.17.4",
-        "node-sass": "^4.5.3",
-        "postcss": "^6.0.11",
-        "rollup": "^0.43.1",
-        "rollup-plugin-buble": "^0.15.0",
-        "rollup-plugin-commonjs": "^8.2.1",
-        "rollup-plugin-node-resolve": "^3.0.0",
-        "rollup-plugin-scss": "^0.2.0",
-        "rollup-plugin-uglify": "^2.0.1",
-        "rollup-plugin-vue": "^2.4.2",
-        "rollup-watch": "^4.3.1",
-        "uglify-es": "^3.1.0"
-    },
-    "dependencies": {
-        "vue-functional-data-merge": "^1.0.6"
-    }
+  "name": "vue-flex",
+  "version": "2.0.0",
+  "description": "A reusable flexbox component using functional css.",
+  "main": "dist/vue-flex.esm.js",
+  "module": "lib",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "rollup -c ./rollup.config.js",
+    "calc-size": "gzip -c dist/vue-flex.esm.js | wc -c && gzip -c dist/vue-flex.css | wc -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexsasharegan/vue-flex.git"
+  },
+  "keywords": ["flex", "flexbox", "vue", "vuejs", "css", "scss"],
+  "author": "Alex Regan <alex.joseph.regan@gmail.com> (https://github.com/alexsasharegan)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexsasharegan/vue-flex/issues"
+  },
+  "homepage": "https://github.com/alexsasharegan/vue-flex#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "clean-css": "^4.1.8",
+    "lodash": "^4.17.4",
+    "node-sass": "^4.5.3",
+    "postcss": "^6.0.11",
+    "rollup": "^0.43.1",
+    "rollup-plugin-buble": "^0.15.0",
+    "rollup-plugin-commonjs": "^8.2.1",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-scss": "^0.2.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-plugin-vue": "^2.4.2",
+    "rollup-watch": "^4.3.1",
+    "uglify-es": "^3.1.0"
+  },
+  "dependencies": {
+    "vue-functional-data-merge": "^1.0.6"
+  }
 }

@@ -7,14 +7,17 @@
 [![GitHub forks](https://img.shields.io/github/forks/alexsasharegan/vue-flex.svg)](https://github.com/alexsasharegan/vue-flex/network)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/alexsasharegan/vue-flex.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
 
-A Vue.js functional component to wrap anything in flexbox. (1.7kb gzipped js+css, or 1.1k js & .6k css)
+A Vue.js functional component to wrap anything in flexbox. (1.8kb gzipped js+css, or 1.2k js & .6k css)
 
 ## Getting Started
 
 ```js
 import Vue from "vue"
-import VueFlex from "vue-flex" // imports the ESM module by default
-import "vue-flex/dist/vue-flex.css" // Already autoprefixed for vendor prefixes. Also namespaced to avoid collisions.
+// imports the ESM module by default
+import VueFlex from "vue-flex"
+// Already autoprefixed for vendor prefixes.
+// Also namespaced to avoid collisions.
+import "vue-flex/dist/vue-flex.css"
 
 Vue.use(VueFlex)
 ```
