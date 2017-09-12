@@ -2,7 +2,7 @@
     display: flex;
 }
 
-.vf__inline-flex {
+.vf__flex--inline {
     display: inline-flex;
 }
 
@@ -18,19 +18,19 @@
 //     order: 0;
 // }
 
-.vf__flex-row {
+.vf__flex-dir--row {
     flex-direction: row;
 }
 
-.vf__flex-column {
+.vf__flex-dir--column {
     flex-direction: column;
 }
 
-.vf__flex-row-reverse {
+.vf__flex-dir--row-reverse {
     flex-direction: row-reverse;
 }
 
-.vf__flex-column-reverse {
+.vf__flex-dir--column-reverse {
     flex-direction: column-reverse;
 }
 

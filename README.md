@@ -1,4 +1,5 @@
 # vue-flex
+
 [![npm version](https://badge.fury.io/js/vue-flex.svg)](https://badge.fury.io/js/vue-flex)
 [![npm downloads](https://img.shields.io/npm/dt/vue-flex.svg)](https://www.npmjs.com/package/vue-flex)
 [![GitHub issues](https://img.shields.io/github/issues/alexsasharegan/vue-flex.svg?style=flat)](https://github.com/alexsasharegan/vue-flex/issues)
@@ -6,19 +7,22 @@
 [![GitHub forks](https://img.shields.io/github/forks/alexsasharegan/vue-flex.svg)](https://github.com/alexsasharegan/vue-flex/network)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/alexsasharegan/vue-flex.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
 
-A Vue.js functional component to wrap anything in flexbox. (1.2kb gzipped js+css)
+A Vue.js functional component to wrap anything in flexbox. (1.7kb gzipped js+css, or 1.1k js & .6k css)
 
 ## Getting Started
+
 ```js
 import Vue from "vue"
 import VueFlex from "vue-flex" // imports the ESM module by default
-import "vue-flex/dist/vue-flex.css"
+import "vue-flex/dist/vue-flex.css" // Already autoprefixed for vendor prefixes. Also namespaced to avoid collisions.
 
 Vue.use(VueFlex)
 ```
 
 ### Dist Varieties
+
 The main export is an es2015 module, but commonjs and umd modules are also available:
+
 - Commonjs: `"vue-flex/dist/vue-flex.common.js"`
 - UMD: `"vue-flex/dist/vue-flex.js"`
 
@@ -32,10 +36,8 @@ The main export is an es2015 module, but commonjs and umd modules are also avail
               column
               justify="center"
               align="center"
-              <!-- Shorthand for :grow="true" :wrap="true" -->
               grow
               wrap
-              <!-- Listen to native events -->
               @click="handleClick"
         >
             <my-content></my-content>
@@ -47,6 +49,7 @@ The main export is an es2015 module, but commonjs and umd modules are also avail
 ```
 
 ## Component Props
+
 | Prop      | Type      | Default   | Description |
 | :-------: | :-------: | :-------: | ----------- |
 | tag       | String    | `"div"`   | Element tagName _(any valid HTML tag name)_ |
@@ -58,16 +61,26 @@ The main export is an es2015 module, but commonjs and umd modules are also avail
 | grow      | Boolean   | `false`   | Applies to all child nodes: `{flex-grow:1;flex-shrink:1;flex-basis:0;}` |
 | justify   | String    | `null`    | One of `[ "start", "end", "center", "between", "around" ]` |
 | align     | String    | `null`    | One of `[ "start", "end", "center", "baseline", "stretch" ]` |
+| vAlign    | String    | `null`    | One of `[ "start", "end", "center", ["between", "baseline",] "stretch" ]` |
+| hAlign    | String    | `null`    | One of `[ "start", "end", "center", ["between", "baseline",] "stretch" ]` |
+
+\* `vAlign` and `hAlign` just use `align` & `justify` under the hood, but when using the directional flex components, they handle the confusion of which axis is vertical/horizontal.
+
+## v2
+
+Version 2 brings two new components `<flex-row>` & `<flex-col>`. In general, these just wrap the column property and make your markup more declarative. I've also added `vAlign` * `hAlign` props to all the components. These will use `align-items` & `justify-content` to determine the correct axis to apply your settings. Remembering which axis is vertical when in column direction is a classic confusion for me, so this abstracts that into a much more declarative api.
 
 ## Flexbox all the things!
+
 While building a large Vue.js application, I found myself constantly repeating the usage of various CSS flexbox utility classes, so I wrapped all the classes in a simple Vue component. This worked beautifully! But for two problems:
 
 - How do I listen for native events on the `<flex>` component? Do I really have to re-emit all the native events to enable `v-on:event`?
-    - _No! You can use the `.native` modifier when binding native event listeners to a custom Vue component. I find this to be a huge stumbling block for beginners because the documentation around this feature is too easy to miss. For more info:_
-        - [**Binding Native Events to Custom Components**](https://vuejs.org/v2/guide/components.html#Binding-Native-Events-to-Components)
-        - [**`v-on` modifier API reference**](https://vuejs.org/v2/api/#v-on)
+  - _No! You can use the `.native` modifier when binding native event listeners to a custom Vue component. I find this to be a huge stumbling block for beginners because the documentation around this feature is too easy to miss. For more info:_
+    - [**Binding Native Events to Custom Components**](https://vuejs.org/v2/guide/components.html#Binding-Native-Events-to-Components)
+    - [**`v-on` modifier API reference**](https://vuejs.org/v2/api/#v-on)
 - How am I supposed to find anything in the Vue devtools component tree if so many of my components are wrapped in these `<flex>` tags?
-    - _If you have a `<ul>` with a bunch of `<flex>` wrapped `<li>`'s, it's annoying. If you use flexbox heavily, it legitimately wastes time performing a vnode scavenger hunt whenever you need to debug a particular item._
+  - _If you have a `<ul>` with a bunch of `<flex>` wrapped `<li>`'s, it's annoying. If you use flexbox heavily, it legitimately wastes time performing a vnode scavenger hunt whenever you need to debug a particular item._
 
 ## Functional Vue Components
-Functional Vue components are a real game changer here. Not only does the modifier-less `v-on:event` syntax work again to bind to native events (when the root element of the component is an HTML Element), but functional components do not appear in Vue devtools. Beyond the debugging experience, there is a performance boost to be had as well. Functional components are stateless (no `data`) and instanceless (no `this` context). This removes a lot of observation overhead and will be very beneficial when a component is likely to be rendered into many vnodes in your app.
+
+Functional Vue components are a real game changer here. Not only does the modifier-less `v-on:event` syntax work again to bind to native events (when the root element of the component is an HTML Element), but functional components do not appear in Vue devtools. Beyond the debugging experience, there is a performance boost to be had as well. Functional components are stateless (no `data`) and instanceless (no `this` context). This removes the initial overhead of observation and is very beneficial when a component is likely to be rendered many times in your app (think list items in a large list).

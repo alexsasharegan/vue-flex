@@ -44,5 +44,8 @@
         "rollup-plugin-vue": "^2.4.0",
         "rollup-watch": "^4.0.0",
         "uglify-es": "^3.0.22"
+    },
+    "dependencies": {
+        "vue-functional-data-merge": "^1.0.6"
     }
 }
