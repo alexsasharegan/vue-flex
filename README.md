@@ -5,7 +5,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/alexsasharegan/vue-flex.svg?style=flat)](https://github.com/alexsasharegan/vue-flex/issues)
 [![GitHub stars](https://img.shields.io/github/stars/alexsasharegan/vue-flex.svg)](https://github.com/alexsasharegan/vue-flex/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/alexsasharegan/vue-flex.svg)](https://github.com/alexsasharegan/vue-flex/network)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/alexsasharegan/vue-flex.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/alexsasharegan/vue-flex.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Falexsasharegan%2Fvue-flex)
 
 A Vue.js functional component to wrap anything in flexbox. (1.8kb gzipped js+css, or 1.2k js & .6k css)
 
