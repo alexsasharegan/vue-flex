@@ -23,8 +23,7 @@ if (!fs.existsSync(dist)) {
 }
 
 module.exports = {
-    entry: path.resolve(src, "index.js"),
-    moduleName: name,
+    input: path.resolve(src, "index.js"),
     plugins: [
         vue(),
         scss({
@@ -50,23 +49,23 @@ module.exports = {
         uglify({}, minify)
     ],
     globals: {},
-    targets: [
+    output: [
         {
             format: "cjs",
-            moduleName: camelCase(name),
-            dest: `./dist/${name}.common.js`,
-            sourceMap: true
+            name: camelCase(name),
+            file: `./dist/${name}.common.js`,
+            sourcemap: true
         },
         {
             format: "es",
-            dest: `./dist/${name}.esm.js`,
-            sourceMap: true
+            file: `./dist/${name}.esm.js`,
+            sourcemap: true
         },
         {
             format: "umd",
-            moduleName: camelCase(name),
-            dest: `./dist/${name}.js`,
-            sourceMap: true
+            name: camelCase(name),
+            file: `./dist/${name}.js`,
+            sourcemap: true
         }
     ]
 }
