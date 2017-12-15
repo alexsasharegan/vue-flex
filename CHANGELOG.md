@@ -1,0 +1,11 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="2.0.5"></a>
+## [2.0.5](https://github.com/alexsasharegan/vue-flex/compare/v2.0.4...v2.0.5) (2017-12-15)
+
+
+### Bug Fixes
+
+* **Flex:** typo fixed to properly use `props.grow` ([e832230](https://github.com/alexsasharegan/vue-flex/commit/e832230))
