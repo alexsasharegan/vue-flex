@@ -10,6 +10,8 @@
   "scripts": {
     "build": "rollup -c ./rollup.config.js",
     "calc-size": "gzip -c dist/vue-flex.esm.js | wc -c && gzip -c dist/vue-flex.css | wc -c",
+    "release": "standard-version",
+    "postrelease": "git push --follow-tags origin master && npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -45,6 +47,7 @@
     "rollup-plugin-uglify": "^2.0.1",
     "rollup-plugin-vue": "^3.0.0",
     "rollup-watch": "^4.3.1",
+    "standard-version": "^4.2.0",
     "uglify-es": "^3.2.2",
     "vue": "^2.5.11",
     "vue-template-compiler": "^2.5.11"
