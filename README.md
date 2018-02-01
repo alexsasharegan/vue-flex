@@ -12,33 +12,32 @@ A Vue.js functional component to wrap anything in flexbox. (1.8kb gzipped js+css
 ## Getting Started
 
 ```js
-import Vue from "vue"
+import Vue from "vue";
 // imports the ESM module by default
-import VueFlex from "vue-flex"
+import VueFlex from "vue-flex";
 // Already autoprefixed for vendor prefixes.
 // Also namespaced to avoid collisions.
-import "vue-flex/dist/vue-flex.css"
+import "vue-flex/dist/vue-flex.css";
 
-Vue.use(VueFlex)
+Vue.use(VueFlex);
 ```
 
 ### Dist Varieties
 
 The main export is an es2015 module, but commonjs and umd modules are also available:
 
-- Commonjs: `"vue-flex/dist/vue-flex.common.js"`
-- UMD: `"vue-flex/dist/vue-flex.js"`
+* Commonjs: `"vue-flex/dist/vue-flex.common.js"`
+* UMD: `"vue-flex/dist/vue-flex.js"`
 
 ```html
 <main>
     <my-navbar></my-navbar>
-    <flex tag="section">
+    <flex-row tag="section">
         <my-sidebar></my-sidebar>
-        <flex
+        <flex-col
               tag="main"
-              column
-              justify="center"
-              align="center"
+              align-v="center"
+              align-h="center"
               grow
               wrap
               @click="handleClick"
@@ -46,43 +45,43 @@ The main export is an es2015 module, but commonjs and umd modules are also avail
             <my-content></my-content>
             <my-content></my-content>
             <my-content></my-content>
-        </flex>
-    </flex>
+        </flex-col>
+    </flex-row>
 </main>
 ```
 
 ## Component Props
 
-| Prop      | Type      | Default   | Description |
-| :-------: | :-------: | :-------: | ----------- |
-| tag       | String    | `"div"`   | Element tagName _(any valid HTML tag name)_ |
-| inline    | Boolean   | `false`   | `display: inline-flex` |
-| column    | Boolean   | `false`   | `flex-direction: column` _(row is default)_ |
-| reverse   | Boolean   | `false`   | `flex-direction: row-reverse|column-reverse` |
-| wrap      | Boolean   | `false`   | `flex-wrap: wrap` |
-| noWrap    | Boolean   | `false`   | `flex-wrap: nowrap` |
-| grow      | Boolean   | `false`   | Applies to all child nodes: `{flex-grow:1;flex-shrink:1;flex-basis:0;}` |
-| justify   | String    | `null`    | One of `[ "start", "end", "center", "between", "around" ]` |
-| align     | String    | `null`    | One of `[ "start", "end", "center", "baseline", "stretch" ]` |
-| alignV    | String    | `null`    | One of `[ "start", "end", "center", ["between", "baseline",] "stretch" ]` |
-| alignH    | String    | `null`    | One of `[ "start", "end", "center", ["between", "baseline",] "stretch" ]` |
+|  Prop   |  Type   | Default | Description                                                               |
+| :-----: | :-----: | :-----: | ------------------------------------------------------------------------- |
+|   tag   | String  | `"div"` | Element tagName _(any valid HTML tag name)_                               |
+| inline  | Boolean | `false` | `display: inline-flex`                                                    |
+| column  | Boolean | `false` | `flex-direction: column` _(row is default)_                               |
+| reverse | Boolean | `false` | `flex-direction: row-reverse|column-reverse`                              |
+|  wrap   | Boolean | `false` | `flex-wrap: wrap`                                                         |
+| noWrap  | Boolean | `false` | `flex-wrap: nowrap`                                                       |
+|  grow   | Boolean | `false` | Applies to all child nodes: `{flex-grow:1;flex-shrink:1;flex-basis:0;}`   |
+| justify | String  | `null`  | One of `[ "start", "end", "center", "between", "around" ]`                |
+|  align  | String  | `null`  | One of `[ "start", "end", "center", "baseline", "stretch" ]`              |
+| alignV  | String  | `null`  | One of `[ "start", "end", "center", ["between", "baseline",] "stretch" ]` |
+| alignH  | String  | `null`  | One of `[ "start", "end", "center", ["between", "baseline",] "stretch" ]` |
 
 \* `alignV` and `alignH` just use `align` & `justify` under the hood, but when using the directional flex components, they handle the confusion of which axis is vertical/horizontal.
 
 ## v2
 
-Version 2 brings two new components `<flex-row>` & `<flex-col>`. In general, these just wrap the column property and make your markup more declarative. I've also added `alignV` * `alignH` props to all the components. These will use `align-items` & `justify-content` to determine the correct axis to apply your settings. Remembering which axis is vertical when in column direction is a classic confusion for me, so this abstracts that into a much more declarative api.
+Version 2 brings two new components `<flex-row>` & `<flex-col>`. In general, these just wrap the column property and make your markup more declarative. I've also added `alignV` & `alignH` props to all the components. These will use `align-items` & `justify-content` to determine the correct axis to apply your settings. Remembering which axis is vertical when in column direction is a classic confusion for me, so this abstracts that into a much more declarative api.
 
 ## Flexbox all the things!
 
 While building a large Vue.js application, I found myself constantly repeating the usage of various CSS flexbox utility classes, so I wrapped all the classes in a simple Vue component. This worked beautifully! But for two problems:
 
-- How do I listen for native events on the `<flex>` component? Do I really have to re-emit all the native events to enable `v-on:event`?
-  - _No! You can use the `.native` modifier when binding native event listeners to a custom Vue component. I find this to be a huge stumbling block for beginners because the documentation around this feature is too easy to miss. For more info:_
-    - [**Binding Native Events to Custom Components**](https://vuejs.org/v2/guide/components.html#Binding-Native-Events-to-Components)
-    - [**`v-on` modifier API reference**](https://vuejs.org/v2/api/#v-on)
-- How am I supposed to find anything in the Vue devtools component tree if so many of my components are wrapped in these `<flex>` tags?
-  - _If you have a `<ul>` with a bunch of `<flex>` wrapped `<li>`'s, it's annoying. If you use flexbox heavily, it legitimately wastes time performing a vnode scavenger hunt whenever you need to debug a particular item._
+* How do I listen for native events on the `<flex>` component? Do I really have to re-emit all the native events to enable `v-on:event`?
+  * _No! You can use the `.native` modifier when binding native event listeners to a custom Vue component. I find this to be a huge stumbling block for beginners because the documentation around this feature is too easy to miss. For more info:_
+    * [**Binding Native Events to Custom Components**](https://vuejs.org/v2/guide/components.html#Binding-Native-Events-to-Components)
+    * [**`v-on` modifier API reference**](https://vuejs.org/v2/api/#v-on)
+* How am I supposed to find anything in the Vue devtools component tree if so many of my components are wrapped in these `<flex>` tags?
+  * _If you have a `<ul>` with a bunch of `<flex>` wrapped `<li>`'s, it's annoying. If you use flexbox heavily, it legitimately wastes time performing a vnode scavenger hunt whenever you need to debug a particular item._
 
 ## Functional Vue Components
 
