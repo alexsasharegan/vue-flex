@@ -1,17 +1,16 @@
 const fs = require("fs");
 const path = require("path");
-const vue = require("rollup-plugin-vue");
+const vue = require("rollup-plugin-vue").default;
 const buble = require("rollup-plugin-buble");
 const resolve = require("rollup-plugin-node-resolve");
 const commonjs = require("rollup-plugin-commonjs");
-const uglify = require("rollup-plugin-uglify");
 const scss = require("rollup-plugin-scss");
 const postcss = require("postcss");
 const autoprefixer = require("autoprefixer");
-const { minify } = require("uglify-es");
+const { terser } = require("rollup-plugin-terser");
 const CleanCSS = require("clean-css");
 const { camelCase } = require("lodash");
-const { name, dependencies } = require("./package.json");
+const { name} = require("./package.json");
 
 const base = __dirname;
 const src = path.resolve(base, "lib");
@@ -53,7 +52,7 @@ module.exports = {
 		}),
 		resolve({ external: ["vue"] }),
 		commonjs(),
-		uglify({}, minify),
+		terser(),
 	],
 	output: [
 		{
